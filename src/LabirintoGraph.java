@@ -98,9 +98,9 @@ public class LabirintoGraph {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 // Verifica se é a posição inicial (B) ou final (A)
-                if (maze[i][j] == 'B') {
+                if (maze[i][j] == 'A') {
                     startVertex = coordToVertex(i, j);
-                } else if (maze[i][j] == 'A') {
+                } else if (maze[i][j] == 'B') {
                     endVertex = coordToVertex(i, j);
                 }
                 
@@ -211,7 +211,7 @@ public class LabirintoGraph {
      * Método main para testes
      */
     public static void main(String[] args) {
-        String filename = "Casos-T2/caso1.txt";
+        String filename = "../Casos-T2/caso1.txt";
         if (args.length > 0) {
             filename = args[0];
         }
@@ -231,7 +231,8 @@ public class LabirintoGraph {
             System.out.println();
             System.out.println("Labirinto com caminho marcado (* representa o caminho):");
             System.out.println();
-            labirinto.printPath(path);
+            // Print de todo o labirinto - desativar para testes >= 5
+            //labirinto.printPath(path);
         } else {
             System.out.println("Nenhum caminho encontrado entre A e B!");
         }
