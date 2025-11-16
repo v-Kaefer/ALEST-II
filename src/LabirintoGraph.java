@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 /**
  * LabirintoGraph - Converte um labirinto em um grafo e usa CaminhamentoLargura
@@ -26,12 +29,18 @@ public class LabirintoGraph {
      * Lê o labirinto do arquivo
      */
     private void readMaze(String filename) {
-        In in = new In(filename);
         ArrayList<String> lines = new ArrayList<>();
         
-        // Lê todas as linhas
-        while (in.hasNextLine()) {
-            lines.add(in.readLine());
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line;
+            // Lê todas as linhas
+            while ((line = br.readLine()) != null) {
+                lines.add(line);
+            }
+        } catch (IOException e) {
+            System.err.println("Erro ao ler o arquivo: " + e.getMessage());
+            e.printStackTrace();
+            return;
         }
         
         rows = lines.size();
