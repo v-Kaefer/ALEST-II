@@ -27,14 +27,12 @@ A classe `LabirintoGraph` resolve labirintos usando a classe existente `Caminham
 ```bash
 # Compilar
 cd src
-javac -d ../bin LabirintoGraph.java
-
-# Executar com arquivo padrão (Casos-T2/caso1.txt)
-cd ..
-java -cp bin LabirintoGraph
+java LabirintoGraph.java
 
 # Executar com arquivo específico
-java -cp bin LabirintoGraph Casos-T2/caso1.txt
+
+> Altere o String filename = "../Casos-T2/caso1.txt" na linha 214, para o teste desejado.
+
 ```
 
 ### Exemplo de Saída
